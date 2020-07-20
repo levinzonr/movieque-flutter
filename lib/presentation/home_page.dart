@@ -1,6 +1,9 @@
 import 'package:app/data/mock_video.dart';
+import 'package:app/presentation/filter_setup_page.dart';
+import 'package:app/presentation/profile_page.dart';
 import 'package:app/presentation/video_item.dart';
 import 'package:flutter/material.dart';
+import 'package:app/presentation/route_extensions.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -10,9 +13,9 @@ class HomePage extends StatelessWidget {
       child: Scaffold(
         body: Column(
           children: <Widget>[
-            Expanded(flex: 1,child: buildContainer),
+            Expanded(flex: 1, child: _buildContainer(context)),
             Expanded(flex: 6, child: buildListView),
-            Expanded(flex: 1, child: buidBottom,)
+            Expanded(flex: 1, child: _buidBottom(context),)
           ],
         ),
       ),
@@ -22,22 +25,29 @@ class HomePage extends StatelessWidget {
   Widget get buildListView {
     return PageView.builder(
       scrollDirection: Axis.horizontal,
-      itemBuilder: (c, i) =>  VideoItem(MockVideos.all[i]),
+      itemBuilder: (c, i) => VideoItem(MockVideos.all[i]),
       itemCount: MockVideos.all.length,
     );
   }
 
-  Container get buidBottom => Container(
-    child: RaisedButton(child: Text("_filter"), onPressed: () => {},),
-  );
-
-  Widget get buildContainer => Row(
-    mainAxisAlignment: MainAxisAlignment.start,
-    children: <Widget>[
+  Container _buidBottom(BuildContext context) =>
       Container(
-        padding: EdgeInsets.only(left: 16),
-        child: Icon(Icons.account_box, color: Colors.white, size: 56,),
-      ),
-    ],
-  );
+        child: MaterialButton(child: Text("_filter"), onPressed: () =>
+        {
+          context.push(FilterSetupPage(), isFoolScreenDialog: true)
+        },),
+      );
+
+  Widget _buildContainer(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: <Widget>[
+        MaterialButton(
+          onPressed: () =>
+              context.push(ProfilePage(), isFoolScreenDialog: true),
+          child: Icon(Icons.account_box, color: Colors.white, size: 56,),
+        ),
+      ],
+    );
+  }
 }

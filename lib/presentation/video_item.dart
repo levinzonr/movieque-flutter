@@ -8,14 +8,28 @@ class VideoItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Container(
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(16),
-          child: Image.network(_video.imageUrl),
+    return Stack(
+      children: <Widget>[
+        Container(
+          alignment: Alignment.center,
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(16),
+            child: buildVideoInfoView(context),
+          ),
         ),
-      ),
+        Container(
+          padding: EdgeInsets.only(top: 24),
+          alignment: Alignment.bottomRight,
+          child: FloatingActionButton(
+            child: Icon(Icons.favorite),
+            onPressed: () => {},
+          ),
+        ),
+      ],
     );
+  }
+
+  Widget buildVideoInfoView(BuildContext context) {
+    return Image.network(_video.imageUrl, fit: BoxFit.fill,);
   }
 }
