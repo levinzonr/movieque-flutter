@@ -1,9 +1,9 @@
 import 'package:app/data/mock_video.dart';
-import 'package:app/presentation/filter_setup_page.dart';
-import 'package:app/presentation/profile_page.dart';
-import 'package:app/presentation/video_item.dart';
+import 'package:app/presentation/screens/filter_setup_page.dart';
+import 'package:app/presentation/screens/profile_page.dart';
+import 'package:app/presentation/screens/video_item.dart';
 import 'package:flutter/material.dart';
-import 'package:app/presentation/route_extensions.dart';
+import 'package:app/presentation/screens/route_extensions.dart';
 
 class HomePage extends StatelessWidget {
   @override
