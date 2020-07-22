@@ -30,6 +30,8 @@ dependencies:
   logger: ^0.9.1
   url_launcher: ^5.4.10
   async: ^2.4.1
+  horizontal_blocked_scroll_physics: ^3.0.0
+  flutter_swiper: 1.1.6
 
 
   # The following adds the Cupertino Icons font to your application.

@@ -14,7 +14,6 @@ class AppButton extends MaterialButton {
               padding: EdgeInsets.all(16),
               width: double.infinity,
               child: Text(label, style: TextStyles.button)),
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
         );
 }
